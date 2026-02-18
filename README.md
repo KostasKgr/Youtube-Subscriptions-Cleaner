@@ -6,7 +6,7 @@ A Manifest V3 Chrome extension that shows **how long ago each channel last uploa
 
 - Adds a "Last upload: X days ago" badge to every channel card on the subscriptions page
 - Flags channels inactive beyond a threshold (default: 365 days) with an orange badge and a "Consider Unsubscribing" button
-- Quota-efficient: uses `channels.list` (batched, 50 IDs/call) + `playlistItems.list` (1 call/channel) — a full scan of 270 channels costs ~280 units out of 10,000/day
+- Quota-efficient: uses `channels.list` (batched, 50 IDs/call) + `playlistItems.list` (1 call/channel) — a full scan of 200 channels costs ~204 units out of 10,000/day
 - Per-channel result caching (default 24 h) so repeat visits are instant
 - Configurable threshold, cache TTL, and concurrency
 - Exponential backoff on 403/429 errors
@@ -67,17 +67,16 @@ yt-subscriptions-cleaner/
 
 ## API quota usage
 
-| Operation | Cost | Calls for 270 channels |
+| Operation | Cost | Calls for 200 channels |
 |---|---|---|
-| `channels.list` (batch 50) | 1 unit | ~6 calls |
-| `playlistItems.list` | 1 unit | ~270 calls |
-| **Total per full scan** | | **~276 units** |
+| `channels.list` (batch 50) | 1 unit | ~4 calls |
+| `playlistItems.list` | 1 unit | ~200 calls |
+| **Total per full scan** | | **~204 units** |
 
-Default YouTube Data API quota: **10,000 units/day** (~36 full scans/day).
+Default YouTube Data API quota per day: **10,000 units/day**
 
 ## Known limitations (V1)
 
-- Only channels with a `/channel/UCxxxx` URL are supported. Channels that only expose a `/@handle` URL show "Handle-only (V2)" and are skipped. Handle resolution is planned for V2.
 - The "Consider Unsubscribing" button opens the channel page; it does not automate the unsubscribe click (fragile DOM automation is planned for V2).
 
 ## Security & privacy
