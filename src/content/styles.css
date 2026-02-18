@@ -1,0 +1,180 @@
+/* =========================================================
+   YT Subscriptions Cleaner – injected styles
+   ========================================================= */
+
+/* ── Badge base ──────────────────────────────────────────── */
+.ytsc-badge {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 6px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: "Roboto", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+
+/* ── Badge variants ──────────────────────────────────────── */
+
+/* Active: last upload is recent (within threshold) */
+.ytsc-badge--active {
+  background: rgba(0, 168, 107, 0.15);
+  color: #00a86b;
+  border: 1px solid rgba(0, 168, 107, 0.3);
+}
+
+/* Inactive: last upload older than threshold */
+.ytsc-badge--inactive {
+  background: rgba(255, 100, 46, 0.15);
+  color: #ff641e;
+  border: 1px solid rgba(255, 100, 46, 0.35);
+  font-weight: 600;
+}
+
+/* Error */
+.ytsc-badge--error {
+  background: rgba(203, 36, 49, 0.12);
+  color: #cb2431;
+  border: 1px solid rgba(203, 36, 49, 0.3);
+  cursor: pointer;
+}
+.ytsc-badge--error:hover {
+  background: rgba(203, 36, 49, 0.2);
+}
+
+/* Quota exceeded */
+.ytsc-badge--quota {
+  background: rgba(203, 36, 49, 0.12);
+  color: #cb2431;
+  border: 1px solid rgba(203, 36, 49, 0.3);
+}
+
+/* No uploads / unknown */
+.ytsc-badge--warning {
+  background: rgba(255, 193, 7, 0.15);
+  color: #b8860b;
+  border: 1px solid rgba(255, 193, 7, 0.35);
+}
+
+/* Handle-only unsupported */
+.ytsc-badge--unsupported {
+  background: rgba(100, 100, 100, 0.1);
+  color: #888;
+  border: 1px solid rgba(100, 100, 100, 0.2);
+}
+
+/* Loading placeholder */
+.ytsc-badge--loading {
+  background: rgba(100, 100, 100, 0.1);
+  color: #999;
+  border: 1px solid rgba(100, 100, 100, 0.15);
+  animation: ytsc-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes ytsc-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+/* ── "Consider Unsubscribing" button ─────────────────────── */
+.ytsc-unsubscribe-btn {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 6px;
+  margin-left: 6px;
+  padding: 4px 10px;
+  border-radius: 18px;
+  border: 1px solid rgba(203, 36, 49, 0.5);
+  background: transparent;
+  color: #cb2431;
+  font-size: 12px;
+  font-family: "Roboto", "Arial", sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  line-height: 1.4;
+  transition: background 0.15s, color 0.15s;
+}
+.ytsc-unsubscribe-btn:hover {
+  background: rgba(203, 36, 49, 0.1);
+}
+
+/* ── Page-level notice banner ────────────────────────────── */
+/* Fixed so the DOM insertion point doesn't matter (avoids landing in the nav) */
+.ytsc-notice {
+  position: fixed;
+  top: 56px;          /* just below YouTube's sticky header */
+  left: 0;
+  right: 0;
+  z-index: 2147483647; /* max z-index */
+  box-sizing: border-box;
+  padding: 10px 24px;
+  font-size: 13px;
+  font-family: "Roboto", "Arial", sans-serif;
+  line-height: 1.5;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+.ytsc-notice a {
+  color: inherit;
+  text-decoration: underline;
+}
+.ytsc-notice--info {
+  background: rgba(0, 116, 212, 0.1);
+  color: #0074d4;
+  border-left: 3px solid #0074d4;
+}
+.ytsc-notice--error {
+  background: rgba(203, 36, 49, 0.08);
+  color: #cb2431;
+  border-left: 3px solid #cb2431;
+}
+
+/* ── Dark-mode overrides (YouTube dark theme) ────────────── */
+html[dark] .ytsc-badge--active,
+[dark] .ytsc-badge--active {
+  background: rgba(0, 168, 107, 0.2);
+  color: #4cde9d;
+  border-color: rgba(0, 168, 107, 0.4);
+}
+html[dark] .ytsc-badge--inactive,
+[dark] .ytsc-badge--inactive {
+  background: rgba(255, 100, 46, 0.2);
+  color: #ff8c5a;
+  border-color: rgba(255, 100, 46, 0.4);
+}
+html[dark] .ytsc-badge--error,
+[dark] .ytsc-badge--error {
+  background: rgba(255, 80, 80, 0.15);
+  color: #ff7070;
+  border-color: rgba(255, 80, 80, 0.35);
+}
+html[dark] .ytsc-badge--warning,
+[dark] .ytsc-badge--warning {
+  background: rgba(255, 193, 7, 0.15);
+  color: #ffd850;
+  border-color: rgba(255, 193, 7, 0.35);
+}
+html[dark] .ytsc-badge--unsupported,
+[dark] .ytsc-badge--unsupported {
+  color: #aaa;
+}
+html[dark] .ytsc-badge--loading,
+[dark] .ytsc-badge--loading {
+  color: #777;
+}
+html[dark] .ytsc-unsubscribe-btn,
+[dark] .ytsc-unsubscribe-btn {
+  border-color: rgba(255, 80, 80, 0.5);
+  color: #ff7070;
+}
+html[dark] .ytsc-unsubscribe-btn:hover,
+[dark] .ytsc-unsubscribe-btn:hover {
+  background: rgba(255, 80, 80, 0.12);
+}
+html[dark] .ytsc-notice--error,
+[dark] .ytsc-notice--error {
+  background: rgba(255, 80, 80, 0.1);
+  color: #ff7070;
+}

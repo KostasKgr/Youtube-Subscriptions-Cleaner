@@ -1,0 +1,114 @@
+/* =========================================================
+   Popup – YT Subscriptions Cleaner
+   ========================================================= */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 280px;
+  font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+  font-size: 13px;
+  color: #202124;
+  background: #fff;
+}
+
+/* ── Header ── */
+header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #ff0000;
+  color: #fff;
+}
+.logo {
+  font-size: 18px;
+  line-height: 1;
+}
+h1 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ── Sections ── */
+.section {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.section:last-of-type { border-bottom: none; }
+
+.hidden { display: none !important; }
+
+/* ── Key-value rows ── */
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.row:last-child { margin-bottom: 0; }
+.label { color: #5f6368; }
+.value { font-weight: 500; }
+.value--ok    { color: #188038; }
+.value--warn  { color: #ea8600; }
+.value--error { color: #d93025; }
+.muted { color: #80868b; }
+
+/* ── Actions ── */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── Button ── */
+.btn {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: background 0.15s;
+  width: 100%;
+}
+.btn--primary {
+  background: #1a73e8;
+  color: #fff;
+}
+.btn--primary:hover:not(:disabled) { background: #1765cc; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── Status message ── */
+.status-msg {
+  font-size: 12px;
+  min-height: 16px;
+  text-align: center;
+}
+.status-msg--ok    { color: #188038; }
+.status-msg--error { color: #d93025; }
+.status-msg--info  { color: #5f6368; }
+
+/* ── Footer ── */
+footer {
+  padding: 8px 16px;
+  border-top: 1px solid #f0f0f0;
+  text-align: center;
+}
+.link-btn {
+  background: none;
+  border: none;
+  color: #1a73e8;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px;
+  text-decoration: underline;
+}
+.link-btn:hover { color: #1765cc; }
+
+a { color: #1a73e8; }

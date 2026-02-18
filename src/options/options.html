@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./options.css" />
+    <title>YT Subscriptions Cleaner — Options</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>YT Subscriptions Cleaner</h1>
+        <p class="subtitle">Settings</p>
+      </header>
+
+      <section class="card">
+        <h2>YouTube Data API Key</h2>
+
+        <div class="field">
+          <label for="apiKey">API Key</label>
+          <div class="input-row">
+            <input
+              id="apiKey"
+              type="password"
+              placeholder="AIza…"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button id="toggleKey" class="btn btn--secondary btn--sm" title="Show/hide key">
+              Show
+            </button>
+          </div>
+          <p class="hint">Stored locally on this device only. Never sent anywhere except Google APIs.</p>
+        </div>
+
+        <button id="testKey" class="btn btn--secondary">Test API Key</button>
+        <span id="testStatus" class="status-msg" aria-live="polite"></span>
+      </section>
+
+      <section class="card">
+        <h2>Scan Settings</h2>
+
+        <div class="field">
+          <label for="thresholdDays">Inactive threshold (days)</label>
+          <input id="thresholdDays" type="number" min="1" max="3650" />
+          <p class="hint">Channels with no upload in this many days are flagged as inactive. Default: 365.</p>
+        </div>
+
+        <div class="field">
+          <label for="cacheTtlHours">Cache TTL (hours)</label>
+          <input id="cacheTtlHours" type="number" min="1" max="168" />
+          <p class="hint">How long to cache per-channel results before re-fetching. Default: 24.</p>
+        </div>
+
+        <div class="field">
+          <label for="concurrency">Parallel requests</label>
+          <input id="concurrency" type="number" min="1" max="20" />
+          <p class="hint">Number of simultaneous API calls. Lower = safer quota usage. Default: 6.</p>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button id="save" class="btn btn--primary">Save Settings</button>
+        <button id="clearCache" class="btn btn--danger-outline">Clear Cache</button>
+        <span id="saveStatus" class="status-msg" aria-live="polite"></span>
+      </div>
+
+      <section class="card card--guide">
+        <h2>How to get a YouTube Data API key</h2>
+        <ol>
+          <li>
+            Go to the
+            <a href="https://console.cloud.google.com/" target="_blank" rel="noopener">
+              Google Cloud Console
+            </a>
+            and create or select a project.
+          </li>
+          <li>
+            Open <strong>APIs &amp; Services → Library</strong> and search for
+            <em>"YouTube Data API v3"</em>. Click <strong>Enable</strong>.
+          </li>
+          <li>
+            Open <strong>APIs &amp; Services → Credentials</strong>, click
+            <strong>Create Credentials → API key</strong>.
+          </li>
+          <li>
+            (Recommended) Restrict the key to the <em>YouTube Data API v3</em> and, optionally,
+            to browser extension HTTP referrers.
+          </li>
+          <li>Copy the key and paste it above.</li>
+        </ol>
+        <p class="note">
+          Default quota is 10,000 units/day. A full scan of ~270 channels costs roughly
+          280 units, so you get ~35 full scans per day before hitting the limit.
+        </p>
+      </section>
+    </div>
+
+    <script src="./options.js"></script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "YT Subscriptions Cleaner",
+  "version": "0.1.0",
+  "description": "Shows last upload age for channels on YouTube subscriptions page and flags inactive channels.",
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+  "action": {
+    "default_title": "YT Subscriptions Cleaner",
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
+    }
+  },
+  "options_page": "src/options/options.html",
+  "permissions": ["storage", "scripting", "tabs"],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://www.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "src/background/service_worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/feed/channels*"],
+      "js": ["src/content/channel_id_injector.js"],
+      "world": "MAIN",
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://www.youtube.com/feed/channels*"],
+      "js": [
+        "src/content/dom.js",
+        "src/content/render.js",
+        "src/content/content_script.js"
+      ],
+      "css": ["src/content/styles.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./popup.css" />
+    <title>YT Subscriptions Cleaner</title>
+  </head>
+  <body>
+    <header>
+      <span class="logo">▶</span>
+      <h1>YT Subscriptions Cleaner</h1>
+    </header>
+
+    <div id="wrong-page" class="section hidden">
+      <p class="muted">
+        Navigate to
+        <a href="https://www.youtube.com/feed/channels" target="_blank">
+          youtube.com/feed/channels
+        </a>
+        to use this extension.
+      </p>
+    </div>
+
+    <div id="on-page" class="hidden">
+      <!-- API key status -->
+      <div class="section">
+        <div class="row">
+          <span class="label">API key</span>
+          <span id="keyStatus" class="value"></span>
+        </div>
+      </div>
+
+      <!-- Last scan summary -->
+      <div id="summary-section" class="section hidden">
+        <div class="row">
+          <span class="label">Last scan</span>
+          <span id="lastScan" class="value muted">—</span>
+        </div>
+        <div class="row">
+          <span class="label">Channels found</span>
+          <span id="totalChannels" class="value">—</span>
+        </div>
+        <div class="row">
+          <span class="label">Inactive</span>
+          <span id="inactiveChannels" class="value value--warn">—</span>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="section actions">
+        <button id="scanBtn" class="btn btn--primary" disabled>Scan Now</button>
+        <span id="scanStatus" class="status-msg" aria-live="polite"></span>
+      </div>
+    </div>
+
+    <footer>
+      <button id="optionsBtn" class="link-btn">Open Options</button>
+    </footer>
+
+    <script src="./popup.js"></script>
+  </body>
+</html>

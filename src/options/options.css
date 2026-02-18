@@ -1,0 +1,147 @@
+/* =========================================================
+   Options page – YT Subscriptions Cleaner
+   ========================================================= */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 24px 16px 48px;
+  font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+  font-size: 14px;
+  color: #202124;
+  background: #f8f9fa;
+  min-width: 500px;
+}
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+header { margin-bottom: 24px; }
+h1 {
+  margin: 0 0 4px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #202124;
+}
+.subtitle {
+  margin: 0;
+  color: #5f6368;
+  font-size: 13px;
+}
+
+/* ── Cards ── */
+.card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+.card h2 {
+  margin: 0 0 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #202124;
+}
+.card--guide { background: #f8f9fa; }
+.card--guide ol {
+  margin: 0 0 12px;
+  padding-left: 20px;
+  line-height: 1.7;
+}
+.card--guide a { color: #1a73e8; }
+
+/* ── Fields ── */
+.field { margin-bottom: 16px; }
+.field label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #3c4043;
+}
+.field input[type="text"],
+.field input[type="password"],
+.field input[type="number"] {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #202124;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.field input:focus { border-color: #1a73e8; box-shadow: 0 0 0 2px rgba(26,115,232,0.15); }
+.field input[type="number"] { width: 160px; }
+.hint { margin: 6px 0 0; font-size: 12px; color: #5f6368; }
+
+/* ── Input row (API key + show button) ── */
+.input-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.input-row input { flex: 1; }
+
+/* ── Buttons ── */
+.btn {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.btn--primary {
+  background: #1a73e8;
+  color: #fff;
+  border-color: #1a73e8;
+}
+.btn--primary:hover { background: #1765cc; border-color: #1765cc; }
+.btn--secondary {
+  background: #fff;
+  color: #1a73e8;
+  border-color: #dadce0;
+}
+.btn--secondary:hover { background: #f1f3f4; }
+.btn--danger-outline {
+  background: #fff;
+  color: #d93025;
+  border-color: rgba(217,48,37,0.4);
+}
+.btn--danger-outline:hover { background: rgba(217,48,37,0.06); }
+.btn--sm { padding: 6px 10px; font-size: 12px; }
+.btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+/* ── Actions row ── */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+/* ── Status messages ── */
+.status-msg {
+  font-size: 13px;
+  min-height: 20px;
+}
+.status-msg--ok    { color: #188038; }
+.status-msg--error { color: #d93025; }
+.status-msg--info  { color: #5f6368; }
+
+/* ── Guide note ── */
+.note {
+  margin: 0;
+  font-size: 12px;
+  color: #5f6368;
+  background: rgba(26,115,232,0.07);
+  padding: 8px 12px;
+  border-radius: 4px;
+}
