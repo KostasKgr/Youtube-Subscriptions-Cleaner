@@ -1,4 +1,4 @@
-# YT Subscriptions Cleaner
+# Youtube Subscriptions Cleaner
 
 A Manifest V3 Chrome extension that shows **how long ago each channel last uploaded** on `youtube.com/feed/channels` and highlights channels that have been inactive beyond a configurable threshold.
 
